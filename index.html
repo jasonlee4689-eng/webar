@@ -39,7 +39,7 @@
 
             // 2. 建立 <a-entity mindar-image-target> 包含內層半球 geometry
             const $entity = $(`
-              <a-entity id="vr1" mindar-image-target="targetIndex: ${i}">
+              <a-entity mindar-image-target="targetIndex: ${i}">
                 <a-entity
                   geometry="primitive: sphere; radius: 0.55; thetaStart: 0; thetaLength: 90"
                   material="src: #domeTexture${i}; side: top; transparent: false"
@@ -52,12 +52,13 @@
             $('#targets-container').append($entity);
           }
 
-          const vr1 = document.querySelector('#vr1');
-          vr1.addEventListener("click", event => {
-            alert("plane click");
-          });
-
         });
+
+      $(body).on('load', function () {
+        alert("plane click");
+
+
+      });
 
 
     </script>
