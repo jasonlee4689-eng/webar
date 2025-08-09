@@ -12,7 +12,7 @@
   </head>
   <body style="padding:0px; margin: 0px">
 
-    <div id="vr1" style="width:250px; height:250px; position:fixed; top:0px; right:250px;background-color: bisque;  font-size: 24px; padding:0px;  text-justify: auto;    text-align: center; margin: 0px; z-index: 10;">
+    <div id="vr1" style="width:200px; height:200px; position:fixed; top:0px; right:200px;background-color: bisque;  font-size: 18px; padding:0px;  text-justify: auto;    text-align: center; margin: 0px; z-index: 10;">
       VR
     </div>
 
@@ -42,8 +42,8 @@
     </a-scene>
 
     <script>
-      $("#targets-container").click(() => {
-        alert("plane click");
+      $("#vr1").click(() => {
+        window.open("dome.html");
       });
 
 
