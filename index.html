@@ -17,47 +17,29 @@
     </div>
 
     <a-scene mindar-image="imageTargetSrc: ./targets.mind; maxTrack: 1; uiScanning: false" renderer="physicallyCorrectLights: true" embedded vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
-      <a-assets id="assets-container"></a-assets>
+      <a-assets id="assets-container">
+        <img id="domeTexture" src="pano.jpg">
+      </a-assets>
 
       <a-entity light="type: ambient; intensity: 3"></a-entity>
       <a-entity light="type: directional; intensity: 0" position="0 0 0"></a-entity>
       <a-camera id="mainCam" position="0 0 0" look-controls="enabled: false;" wasd-controls="enabled: false"></a-camera>
 
-      <a-entity id="targets-container"></a-entity>
+      <a-entity id="targets-container">
+        <a-entity mindar-image-target="targetIndex: 0">
+          <a-entity
+            geometry="primitive: sphere; radius: 0.55; thetaStart: 0; thetaLength: 90"
+            material="src: #domeTexture; side: top; transparent: false"
+            position="0 0 -0.1"
+            rotation="90 0 0">
+          </a-entity>
+      </a-entity>
 
     </a-scene>
 
     <script>
-      $(window).on('load', function () {
-          const total = 1;
-
-          for (let i = 0; i < total; i++) {
-            // 1. 加入貼圖 <img>
-            $('#assets-container').append(`
-              <img id="domeTexture${i}" src="pano.jpg">
-            `);
-
-            // 2. 建立 <a-entity mindar-image-target> 包含內層半球 geometry
-            const $entity = $(`
-              <a-entity mindar-image-target="targetIndex: ${i}">
-                <a-entity
-                  geometry="primitive: sphere; radius: 0.55; thetaStart: 0; thetaLength: 90"
-                  material="src: #domeTexture${i}; side: top; transparent: false"
-                  position="0 0 -0.1"
-                  rotation="90 0 0">
-                </a-entity>
-              </a-entity>
-            `);
-
-            $('#targets-container').append($entity);
-          }
-
-        });
-
-      $(body).on('load', function () {
+      $("#targets-container").click(() => {
         alert("plane click");
-
-
       });
 
 
