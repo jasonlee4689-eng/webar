@@ -12,6 +12,10 @@
   </head>
   <body style="padding:0px; margin: 0px">
 
+    <div id="vr1" style="width:10px; height:10px; position:fixed; top:0px; right:0px;background-color: bisque;  font-size: 36px; padding:0px;  text-justify: auto;    text-align: center; margin: 0px;">
+      VR
+    </div>
+
     <div id="dwn1" style="width:100vw; height:100vh; background-color: bisque;  font-size: 36px; padding:0px;  text-justify: auto;    text-align: center; margin: 0px;">
       下載中！
     </div>
@@ -46,9 +50,6 @@
     </script>
 
     <script>
-
-
-
       navigator.mediaDevices.enumerateDevices().then(devices => {
         const videoDevices = devices.filter(device => device.kind === 'videoinput');
         console.log("可用攝影機：", videoDevices);
@@ -58,7 +59,6 @@
 
         $("#dwn1").html("下載完成！<br>點擊畫面開始感應！");
         $("#dwn1").click(()=>{
-
           $("#dwn1").hide();
         });
 
