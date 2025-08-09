@@ -52,8 +52,9 @@
             $('#targets-container').append($entity);
           }
 
-          $('#targets-container').click(()=>{
-            alert("OK");
+          const vr1 = document.querySelector('#vr1');
+          vr1.addEventListener("click", event => {
+            alert("plane click");
           });
 
         });
